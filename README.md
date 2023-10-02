@@ -89,6 +89,38 @@ The React Router project has now been broken up into a couple of different libra
 <img width="302" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/523e03d1-8d72-461e-84e1-462837ab7dde">
 
 
+
+### Redux Form
+- [Redux Form](https://redux-form.com/8.3.0/)
+- 버전
+   - `npm install --save redux-form@6.6.3` : 강의와 동일한 버전인 6.6.3 사용
+   - `npm install --save redux@3.0.0` : 위 버전과 호환되도록 하기 위해 리덕스 버전 수정
+- 동작과정 <br/> 
+  <img width="571" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/ef81c6b9-7b4f-4021-a664-94b30171c057">
+- redux-form 의 역할
+   - validation
+   - form submit
+
+### Field
+- redux form의 `Field` 태그 <br/>
+- 역할
+   - eventHandle
+   - redux와 interaction 
+<img width="334" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/e6e9a6ec-4687-49bc-8c0d-967d20daae3c">
+- label : 사용자 정의 props, field 파라메터에 담겨 넘어간다.
+- name : 바인딩 되는 데이터의 속성
+- component: 렌더링하는 컴포넌트(jsx)를 반환하는 함수, field 파라메터가 넘어감 <br/>
+  <img width="748" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/8c6e7992-296b-4580-b7a2-2e95b5d94177">
+
+### validation
+- 유효성 체크 실시
+- form submit 시, form의 name 가 변수명이 되어 values 에 담겨 넘어감
+- values에 값이 들어가 있으면 유효하지 않은 값으로 간주하여 submit 하지 않음
+- values에 담은 객체를 기반으로 폼에 메세지를 보여줌 (`{field.meta.error}`) 이용
+
+<img width="603" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/8f982604-c50c-4b3f-9938-4ba3bc07172b">
+
+<img width="711" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/089308d7-ea57-423e-8e3a-4007ad0c584d">  
  
 
 ## Trouble Shooting
