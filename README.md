@@ -59,14 +59,36 @@ The React Router project has now been broken up into a couple of different libra
      <img width="916" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/ce1a7bd1-b637-47c6-8a88-81e25b4578e5">
 
 
-- Action 에서 React-Promise를 사용하여 데이터를 가져온다.
+- Action 에서 axios를 사용하여 데이터를 가져온다.
    - `npm install --save redux-promise`
    - `npm install --save axios@0.27.2`
+   - reducer 등록
+   - 미들웨어로 redux-promise 등록하기  
  
 
 - 리액트 라이프사이클
    - 컴포넌트 이벤트를 담당한다. 이벤트를 탐지하여 핸들러를 동작할 수 있게 한다.
    - ex) componentDidMount : 컴포넌트가 마운트 될때
+     
+   <img width="343" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/1105af6f-8223-43a3-b2f4-4e246fde3cf4">
+
+
+ 
+### Switch
+리액트 라우터는 매칭되는 url을 모두 보여주기 때문에, /posts/new 를 호출하면, / 에 해당하는 index 컴포넌트와 /posts/new 에 해당하는 postNew 컴포넌트를 모두 보여준다. 
+이를 막기 위해 React-Router-Dom 의 Switch 태그를 사용하여 감싸준다. 이는 위에서 부터 탐색하여 제일 처음 해당하는 url만 표시해 주는데, 그렇기 때문에 복잡한 url일 수록 위에 적어야한다.
+
+<img width="730" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/670fe169-90bc-4d25-bffb-266c7fbbe5a7">
+
+
+` 다른 방법은 없나? `
+
+### Link 태그
+전통적인 a 태그와 비슷한 역할을 하는 리액트 라우터 태그이다.
+
+<img width="302" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/523e03d1-8d72-461e-84e1-462837ab7dde">
+
+
  
 
 ## Trouble Shooting
@@ -81,6 +103,9 @@ The React Router project has now been broken up into a couple of different libra
 
 - 해결: applyMiddleware 에 reduxPromise 미들웨어를 넣어주었더니 해결되었다.
   <img width="594" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/ae099cbf-ad00-4cdb-8c4a-aaa8e0e9ed07">
+
+  <img width="455" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/5e73f66e-2d1e-46e3-8bc0-c99c21a37f7e">
+
  
 - learn
    - reduxPromise 미들웨어는 Action Creator 에서 가져온 `Promise 데이터를 가공해서 reducer로 넣어준다`.
