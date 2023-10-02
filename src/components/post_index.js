@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import { Link } from 'react-router-dom';
 
 class PostIndex extends Component {
     // 컴포넌트가 돔에 표시될 때 발생하는 이벤트
@@ -22,6 +23,11 @@ class PostIndex extends Component {
     render() {
         return (
             <div>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to="/posts/new">
+                        Add Post
+                    </Link>
+                </div>
                 <h3>Posts</h3>
                 <ul className='list-group'>
                     {this.renderPosts()}
