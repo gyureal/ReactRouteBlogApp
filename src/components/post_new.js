@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { createPost } from '../actions';
+import { connect } from 'react-redux';
 
 class PostNew extends Component {
 
@@ -24,7 +26,7 @@ class PostNew extends Component {
     }
 
     onSubmit(values) {
-        console.log(values);
+        this.props.createPost(values);
     }
 
     render() {
@@ -80,4 +82,6 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'PostNewForm'     // should be unique (동일한 폼 이름으로 만들면 merge 됨)
-})(PostNew);
+})(
+    connect(null, {createPost})(PostNew)    // action creator 를 props에 넣어줌
+);
