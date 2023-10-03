@@ -88,6 +88,9 @@ The React Router project has now been broken up into a couple of different libra
 
 <img width="302" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/523e03d1-8d72-461e-84e1-462837ab7dde">
 
+- Link 태그는 a 태그로 변환된다
+
+<img width="201" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/5aa0dd61-dd96-4e56-a950-d58ed3094d06">
 
 
 ### Redux Form
@@ -97,9 +100,14 @@ The React Router project has now been broken up into a couple of different libra
    - `npm install --save redux@3.0.0` : 위 버전과 호환되도록 하기 위해 리덕스 버전 수정
 - 동작과정 <br/> 
   <img width="571" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/ef81c6b9-7b4f-4021-a664-94b30171c057">
+  
 - redux-form 의 역할
    - validation
    - form submit
+ 
+- post 생성 프로세스 <br/>
+   <img width="437" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/02b4e41e-6232-45c6-a21c-fcbae5872c5b">
+
 
 ### Field
 - redux form의 `Field` 태그 <br/>
@@ -107,6 +115,7 @@ The React Router project has now been broken up into a couple of different libra
    - eventHandle
    - redux와 interaction 
 <img width="334" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/e6e9a6ec-4687-49bc-8c0d-967d20daae3c">
+
 - label : 사용자 정의 props, field 파라메터에 담겨 넘어간다.
 - name : 바인딩 되는 데이터의 속성
 - component: 렌더링하는 컴포넌트(jsx)를 반환하는 함수, field 파라메터가 넘어감 <br/>
@@ -121,6 +130,46 @@ The React Router project has now been broken up into a couple of different libra
 <img width="603" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/8f982604-c50c-4b3f-9938-4ba3bc07172b">
 
 <img width="711" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/089308d7-ea57-423e-8e3a-4007ad0c584d">  
+
+### Validation이 다루는 상태
+- 폼의 3가지 상태 <br/>
+<img width="1313" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/c075e6ce-3959-4319-9ff9-b216a2669d24">
+
+- pristine: no input, 사용자로부터 touch가 없는상태
+- touched: 유저가 수정 또는 포커스를 완료한 상태 (포커스 떠남)
+- invalid: 유효성 체크 결과 유효하지 않은 상태
+
+- default 로 에러 메세지를 표시해 주고싶지 않을때 <br/>
+<img width="756" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/0522f69f-b5e9-4308-884f-072434bf2de2">
+
+- form validation에 상태 추가
+
+<img width="768" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/4186f559-21fd-4da2-a8c2-177174f08209">
+  
+<img width="739" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/ddfdf655-53c9-4654-95b7-8c2a8394610b">
+
+
+### 요청 성공 후 redirect 하는법
+- redirect 기능 : `props.history.push(주소)`
+- 요청 성공후 동작해야하므로, action creator의 then() 절로 callback 메서드를 넘겨준다.
+
+  <img width="437" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/3b221c98-5458-43c3-a713-e7f9920d2dfe">
+
+  <img width="437" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/0e6dbd57-89c3-4e0b-9950-8c297e8c4c7b">
+  
+
+### Route 태그 pathVariable
+route 태그에 pathvaribale을 명시하려면, `/:id` 처럼 : 을 사용하고, 
+`this.props.match.params.id` 로 컴포넌트에서 사용할 수 있다.
+
+mapStateToProps 내부에서 props를 사용하려면 아래와같이 두번째 파라메터에 ownProps를 명시하면된다. <br/>
+<img width="797" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/393ed60c-ca13-4cf9-9087-c611367d3466">
+
+
+### render() 초기값
+render 메서드에서 props 데이터를 사용할 때, 데이터 fetch가 안되었을 수 있으므로, 유효성 체크를 하여 값이 없을 경우 render 되지 않도록 한다. <br/>
+<img width="349" alt="image" src="https://github.com/gyureal/ReactRouteBlogApp/assets/78974381/aba50362-7b28-4726-94e9-27da2b4a2b2a">
+
  
 
 ## Trouble Shooting
